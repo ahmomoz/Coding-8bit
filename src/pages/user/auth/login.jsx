@@ -21,6 +21,27 @@ export default function Login() {
   // 登入邏輯
   const [formData, setFormData] = useState({});
   const loginFn = async () => {
+    const { email, password } = formData;
+
+    // 驗證空值
+    if (!email || !password) {
+      Swal.fire({
+        icon: "warning",
+        title: "請輸入帳號密碼",
+      });
+      return;
+    }
+
+    // 驗證 email 格式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Swal.fire({
+        icon: "warning",
+        title: "請輸入正確的信箱格式",
+      });
+      return;
+    }
+
     setLoadingState(true);
     try {
       await authApi.login(formData);
@@ -32,11 +53,29 @@ export default function Login() {
       const redirectTo = redirectPath ?? "/";
       navigate(redirectTo);
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "登入失敗",
-        text: error.response.data.message,
-      });
+      const msg = error?.response?.data?.message;
+
+      if (msg === "帳號不存在") {
+        // 如果帳號未註冊的話，彈出提示並導引去註冊
+        Swal.fire({
+          icon: "info",
+          title: "查無帳號",
+          text: "尚未註冊，是否前往註冊頁面？",
+          showCancelButton: true,
+          confirmButtonText: "前往註冊",
+          cancelButtonText: "取消",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            navigate("/signup");
+          }
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "登入失敗",
+          text: msg || "發生錯誤，請稍後再試",
+        });
+      }
     } finally {
       setLoadingState(false);
     }

@@ -7,7 +7,22 @@ $navbar-height-mobile: 56px;
 
 .layout-nav-wrap {
   z-index: 100;
+
+  @include lg-pc {
+    position: sticky;
+    top: 0;
+    z-index: 99;
   
+    height: $navbar-height-mobile;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  
+    &.show {
+      height: 100vh;
+      overflow-y: auto;
+    }
+  }
+
   .navbar-collapse {
     @include lg-pc {
       position: fixed;
@@ -25,6 +40,7 @@ $navbar-height-mobile: 56px;
         opacity: 1;
         visibility: visible;
         transition: opacity 0.8s ease, visibility 0s linear;
+        height: 100%;
       }
     }
 

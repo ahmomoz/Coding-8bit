@@ -1,14 +1,34 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Loader from "@/components/common/Loader";
-import { useSelector, useDispatch } from "react-redux";
 import {
   loginCheck,
   getUserData,
   changeUserRole,
   logout,
 } from "@/utils/slice/authSlice";
+import useScrollPosition from "@/hooks/use-scrollPosition";
+
+const navItems = [
+  {
+    to: "/course-list",
+    label: "精選課程",
+  },
+  {
+    to: "/tutor-list",
+    label: "一對一教學",
+  },
+  {
+    to: "/custom-requests-list",
+    label: "課程客製化",
+  },
+  {
+    to: "/help-center",
+    label: "幫助中心",
+  },
+];
 
 export default function Header() {
   // loading
@@ -32,28 +52,6 @@ export default function Header() {
   );
 
   const navigate = useNavigate();
-
-  const navItems = useMemo(
-    () => [
-      {
-        to: "/course-list",
-        label: "精選課程",
-      },
-      {
-        to: "/tutor-list",
-        label: "一對一教學",
-      },
-      {
-        to: "/custom-requests-list",
-        label: "課程客製化",
-      },
-      {
-        to: "/help-center",
-        label: "幫助中心",
-      },
-    ],
-    []
-  );
 
   // 切換身分
   const roleToggle = async () => {
@@ -106,6 +104,9 @@ export default function Header() {
     setIsMenuOpen((prev) => !prev);
   };
 
+  // 判斷往下滑的高度要超過多少為 true
+  const isScrolled = useScrollPosition(100);
+
   // 初始化 - 監聽路由變化，有切換路由則隱藏 Menu
   useEffect(() => {
     setIsMenuOpen(false);
@@ -118,7 +119,7 @@ export default function Header() {
       {isMenuOpen && <style>{`body { overflow: hidden; }`}</style>}
       <nav
         className={`layout-nav-wrap navbar navbar-expand-lg navbar-light py-2 ${
-          isMenuOpen ? "bg-white" : "bg-transparent"
+          isMenuOpen || isScrolled ? "bg-white shadow-sm" : "bg-transparent"
         }`}
       >
         <div className="container-lg">
@@ -127,7 +128,7 @@ export default function Header() {
               <picture>
                 <source
                   srcSet="images/logo-sm.svg"
-                  media="(max-width: 575.98px)"
+                  media="(max-width: 991.98px)"
                 />
                 <img src="images/logo.svg" alt="logo-image" />
               </picture>
