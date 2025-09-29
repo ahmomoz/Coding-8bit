@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet-async";
 
 import Swal from "sweetalert2";
 
-import EditContent from "@/components/tutor-panel/course/edit/editContent";
-import EditChapter from "@/components/tutor-panel/course/edit/editChapter";
+import EditContent from "@/components/tutor-panel/course/edit/EditContent";
+import EditChapter from "@/components/tutor-panel/course/edit/EditChapter";
 import Loader from "@/components/common/Loader";
 
 export default function TutorManageEditTopicSeries() {
