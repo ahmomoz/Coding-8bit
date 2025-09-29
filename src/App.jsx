@@ -3,7 +3,6 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router/routes";
 import { Suspense } from "react";
 
-import Loader from "./components/common/Loader";
 import ColdStartLoader from "./components/common/ColdStartLoader";
 
 function App() {
