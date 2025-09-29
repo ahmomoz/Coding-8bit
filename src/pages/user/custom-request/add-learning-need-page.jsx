@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 import Swal from "sweetalert2";
 
-import AddLearningNeedRobot from "@/components/custom-request/addLearningNeedRobot";
+import AddLearningNeedRobot from "@/components/custom-request/AddLearningNeedRobot";
 import ChatRoom from "@/components/custom-request/ChatRoom";
 import LearningNeedForm from "@/components/custom-request/LearningNeedForm";
 import TransparentLoader from "@/components/common/TransparentLoader";
