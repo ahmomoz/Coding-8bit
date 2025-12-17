@@ -15,6 +15,10 @@ import Loader from "@/components/common/Loader";
 import { formatDateToTaiwanStyle } from "@/utils/timeFormatted-utils";
 
 export default function StudentManageCustomRequests() {
+  // auth
+  const { isAuth } = useSelector((state) => state.auth);
+  const { userData } = useSelector((state) => state.auth);
+
   // loading
   const [loadingState, setLoadingState] = useState(true);
 
@@ -23,6 +27,8 @@ export default function StudentManageCustomRequests() {
   const [pageData, setPageData] = useState({});
   const getData = useCallback(
     async (page = 1) => {
+      if (!userData?.id) return;
+
       setLoadingState(true);
       try {
         const result = await customRequestsApi.getUserCustomRequests(
@@ -41,7 +47,7 @@ export default function StudentManageCustomRequests() {
         setLoadingState(false);
       }
     },
-    [userData.id]
+    [userData?.id]
   );
 
   // 更新需求
@@ -111,9 +117,6 @@ export default function StudentManageCustomRequests() {
     myModal.current = new bootstrap.Modal(cardModalRef.current);
   }, []);
 
-  // auth
-  const { isAuth } = useSelector((state) => state.auth);
-  const { userData } = useSelector((state) => state.auth);
   // 初始化 - 取得資料
   useEffect(() => {
     if (isAuth) {
