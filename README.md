@@ -133,7 +133,7 @@
   - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
     `http://localhost:5173/<專案名稱>/pages/index.html`
 - `npm run build` - 執行編譯模式（不會開啟瀏覽器）
-- `npm ru deploy` - 自動化部署
+- `npm run deploy` - 自動化部署
 
 ### 注意事項
 
@@ -189,3 +189,4 @@ git push -u origin main // 僅限第一次輸入，往後只需要輸入 git pus
 
 - **Email**: custommadesite@gmail.com
 - **GitHub**: [GitHub 頁面](https://github.com/ahmomoz/Coding-8bit)
+
