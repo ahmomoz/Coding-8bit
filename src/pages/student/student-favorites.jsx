@@ -270,7 +270,7 @@ function StudentFavorites() {
                         </div>
 
                         <NavLink
-                          to={`/tutor/${tutor.Tutor.User.id}`}
+                          to={`/tutor/${tutor.Tutor.id}`}
                           className="btn btn-brand-03 w-100 slide-right-hover"
                         >
                           <p className="f-center me-1">
