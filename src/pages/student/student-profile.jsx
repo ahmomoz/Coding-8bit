@@ -19,7 +19,7 @@ export default function StudentProfile() {
     try {
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
       const res = await axios.get(
-        `https://service.coding-8bit.site/api/v1/user/users/me`
+        `https://service.coding-8bit.com/api/v1/user/users/me`
       );
       setUserData(res.data);
     } catch (error) {

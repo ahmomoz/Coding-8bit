@@ -47,7 +47,7 @@ export default function ResetPassword({ userData, setLoadingState }) {
     setLoadingState(true);
     try {
       await axios.post(
-        "https://service.coding-8bit.site/api/v1/password/change-password",
+        "https://service.coding-8bit.com/api/v1/password/change-password",
         { oldPassword: oldPassword, newPassword: newPassword }
       );
       Swal.fire({
