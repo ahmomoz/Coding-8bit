@@ -162,7 +162,7 @@ export default function SubscriptionPayment() {
     setLoadingState(true);
     try {
       // 設定前端跳轉的網址
-      const returnUrl = `https://coding-8bit.site/#/subscription/subscription-paymentResult`;
+      const returnUrl = `https://coding-8bit.com/#/subscription/subscription-paymentResult`;
 
       // 呼叫 API 取得藍新金流參數
       const response = await orderApi.addPay(orderId, returnUrl);

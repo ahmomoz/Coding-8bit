@@ -156,7 +156,7 @@ export default function TutorBookingPayment() {
   const addPay = async (orderId, data) => {
     try {
       // 設定前端跳轉的網址
-      const returnUrl = `https://coding-8bit.site/#/tutor-booking-payment-result`;
+      const returnUrl = `https://coding-8bit.com/#/tutor-booking-payment-result`;
 
       // 呼叫 API 取得藍新金流參數
       const response = await orderApi.addPay(orderId, returnUrl);

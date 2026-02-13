@@ -26,7 +26,7 @@ export default function Footer() {
               </div>
               <div className="f-align-items mt-2 mt-g-0">
                 <a
-                  href="https://coding-8bit.site/PrivacyPolicy.html"
+                  href="https://coding-8bit.com/PrivacyPolicy.html"
                   target="_blank"
                   className="fs-7 underline-hover d-inline"
                 >
@@ -34,7 +34,7 @@ export default function Footer() {
                 </a>
                 <span className="ms-1">|</span>
                 <a
-                  href="https://coding-8bit.site/TermsOfService.html"
+                  href="https://coding-8bit.com/TermsOfService.html"
                   target="_blank"
                   className="fs-7 underline-hover d-inline ms-1"
                 >

@@ -6,7 +6,7 @@
 # Coding∞bit - 客製化程式教育預約平台
 
 ## 線上 Demo
-<a href="https://coding-8bit.site">DEMO Link</a>
+<a href="https://coding-8bit.com">DEMO Link</a>
 
 ## 關於此專案
 ![custom course page screenshot](https://github.com/ahmomoz/Coding-bit/blob/main/assets/images/custom-course-page-screenshot.png)
